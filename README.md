@@ -28,4 +28,3 @@ We are also deeply indebted to those who use our web app and fill out the questi
 
 Contact us EMAIL:  Please feel free to contact us (u7342064@anu.edu.au) if you have any questions.
 
-![Visitors](https://api.visitorbadge.io/api/visitors?path=https%3A%2F%2Fgithub.com%2FClxiu%2FTrust-Indicator&label=This%20Project%20Has%20Been%20Trusted%20By&countColor=%23263759)
