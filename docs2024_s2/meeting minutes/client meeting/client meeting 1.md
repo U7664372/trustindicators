@@ -2,7 +2,7 @@
 
 ## Meeting Details  
 
-- **Date:** 2024-09-12
+- **Date:** 2024-09-4
 - **Location:** Online
 - **Meeting Topic:** Project Overview and Next Steps for trust indicator
 
