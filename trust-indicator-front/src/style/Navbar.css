@@ -1,0 +1,116 @@
+/* Navbar.css */
+
+.navigation-bar {
+    width: 100%;
+    height: 130px;
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+}
+
+
+/* Top bar */
+.top-bar {
+    width: 100%;
+    height: 30%;
+    Background-color: #464646;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+}
+
+.search-container {
+    height: 80%;
+    width: 30%;
+    display: flex;
+    margin-left: 40%;
+    align-self: center;
+}
+
+#search-input {
+    width: 70%;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px 0 0 5px;
+    outline: none;
+}
+
+#search-button {
+    padding: 10px 15px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 0 5px 5px 0;
+    background-color: #4CAF50;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    outline: none;
+}
+
+#search-button:hover {
+    background-color: #45a049;
+}
+
+
+
+.user-container {
+    right: 2%;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    text-align: center;
+    padding: 15px 15px;
+    cursor: pointer;
+    border: 1px solid #ccc;
+    border-radius: 50%;
+    background-color: #4CAF50;
+    color: white;
+    transition: background-color 0.3s;
+}
+
+.user-container:hover {
+    background-color: #45a049;
+}
+
+.user-container:focus {
+    outline: none;
+    box-shadow: 0 0 0 2px rgba(76, 175, 80, 0.5);
+}
+
+.sign-icon {
+    margin-right: 10px; /* Space between icon and text */
+}
+
+
+/* Bottom bar */
+.buttom-bar {
+    width: 100%;
+    height: 70%;
+    Background-color: #282c34;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+}
+
+
+/* Logo */
+.logo {
+    position: absolute;
+    width: 110px;
+    height: 110px;
+    bottom: 10px;
+    right: 90%;
+    z-index: 3;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+}
+
+.logo:hover {
+    /* brighter color within 0.3s */
+    transition: 0.3s;
+    filter: brightness(1.2);
+}
