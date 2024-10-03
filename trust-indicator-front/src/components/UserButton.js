@@ -1,24 +1,33 @@
 import React from 'react';
-import { useNavigate } from 'react-router-dom';
-import { useAuth } from '../context/AuthContext';
+import '../style/UserButton.css';
 
-const UserButton = () => {
-    const { isLoggedIn } = useAuth();
-    const navigate = useNavigate();
-
-    const handleClick = () => {
-        if (isLoggedIn) {
-            navigate('/profile');
-        } else {
-            navigate('/login');
-        }
+function LoginForm() {
+    const handleLoginClick = () => {
+        console.log('Login clicked');
     };
 
     return (
-        <div className="user-container" onClick={handleClick}>
-            <i className="fa fa-user" style={{ fontSize: '24px' }}></i>
+        <div className="login-form">
+            <button className="login-button" onClick={handleLoginClick}>
+                <span className="material-symbols-rounded">
+                    person
+                </span>
+            </button>
         </div>
     );
-};
+}
+
+function AdminPanel() {
+
+}
+
+function UserButton({isLoggedIn, username}) {
+    isLoggedIn = false;
+    return (
+        <div>
+            {isLoggedIn ? <AdminPanel/> : <LoginForm/>}
+        </div>
+    );
+}
 
 export default UserButton;
