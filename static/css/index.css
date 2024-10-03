@@ -158,6 +158,23 @@ html, body {
 .search-button:active {
     transform: scale(1.1);
 }
+.top100-button-container {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.top100-button {
+    background-color: #00467F;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.top100-button:hover {
+    background-color: #003366;
+}
 .search-input:focus ~ .search-button {
     border: 1.5px solid #C4362E;
 }
