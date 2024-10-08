@@ -13,14 +13,6 @@ The project's objective is to offer consumers a reliable resource to improve the
 
 https://sites.google.com/view/trustindicators
 
-## Documentation
-
-
-
-## Project Management
-
-https://trello.com/w/user7b54c68cc690952666eca05c51041ad3
-
 ## Acknowledgements
 
 We would like to extend our sincere gratitude to the previous team for their valuable contributions to the project. Their hard work and dedication have laid a solid foundation for us to build upon.
