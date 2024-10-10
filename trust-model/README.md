@@ -123,4 +123,5 @@ This repository partially borrows code and resources from the following open-sou
 - [CNNDetection](https://github.com/peterwang512/CNNDetection)
 - [stylegan](https://github.com/NVlabs/stylegan)
 - [genforce](https://github.com/genforce/genforce/)
+- [LGrad](https://github.com/chuangchuangtan/LGrad)
 
