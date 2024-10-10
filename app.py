@@ -1,24 +1,26 @@
 import os
-from datetime import datetime
-from io import BytesIO
 import random
-import jwt
-
-from flask import Flask, render_template, request, flash, redirect, url_for, jsonify, send_file, session
-from requests import Session
-from werkzeug.utils import secure_filename
-from flask_sqlalchemy import SQLAlchemy
-from trust_indicator.ExifExtractor.InterfaceTester import extract_exif_data
-
-from database import db, create_database, User, Image, Feedback, Favorites
-from sqlalchemy.exc import IntegrityError
-from werkzeug.security import generate_password_hash, check_password_hash
 import re
+from datetime import datetime, timedelta
+from io import BytesIO
+
+import jwt
+import torch
+from PIL import Image as PILImage
+from torchvision import transforms
+from requests import Session
+from flask import Flask, render_template, request, flash, redirect, url_for, jsonify, send_file, session
+from flask_sqlalchemy import SQLAlchemy
 from flask_session import Session
 from flask_login import LoginManager, login_user, current_user, login_required, logout_user
-from datetime import datetime, timedelta
 from flask_mail import Mail, Message
-from flask import render_template
+from werkzeug.utils import secure_filename
+from werkzeug.security import generate_password_hash, check_password_hash
+from sqlalchemy.exc import IntegrityError
+
+from trust_indicator.ExifExtractor.InterfaceTester import extract_exif_data
+from database import db, create_database, User, Image, Feedback, Favorites
+from networks.resnet import resnet50  # Assuming resnet50 is defined in your project in the 'networks' module
 
 app = Flask(__name__)
 # Creat SQLite Database
@@ -805,3 +807,76 @@ def get_current_user():
 if __name__ == '__main__':
     # app.run(ssl_context=('env/localhost.crt', 'env/localhost.key'))
     app.run()
+
+
+    # # Initialize the database
+    # app = Flask(__name__)
+    # db = SQLAlchemy(app)  # Initialize SQLAlchemy with Flask
+    # Image = ...  # Import the Image model from your database module
+    #
+    # app.config['UPLOAD_FOLDER'] = 'uploads'  # Define where uploads should be stored
+    # app.config['ALLOWED_EXTENSIONS'] = {'png', 'jpg', 'jpeg', 'gif'}
+    #
+    # model = None
+    #
+    #
+    # def load_model():
+    #     global model
+    #     model_path = 'path/to/your/model.pth'
+    #     model = resnet50(num_classes=1)  # Load ResNet-50 model
+    #     model.load_state_dict(torch.load(model_path, map_location='cuda'))  # Load model onto GPU if available
+    #     model.eval()
+    #     model.cuda()  # Move model to GPU
+    #
+    #
+    # # Initialize model before the first request
+    # @app.before_first_request
+    # def initialize_model():
+    #     load_model()
+    #
+    #
+    # # Define image preprocessing transform
+    # transform = transforms.Compose([
+    #     transforms.Resize((224, 224)),
+    #     transforms.ToTensor(),
+    # ])
+    #
+    #
+    # def analyze_image(file_data):
+    #     # Convert image bytes to PIL image and preprocess
+    #     image = PILImage.open(BytesIO(file_data)).convert('RGB')
+    #     input_tensor = transform(image).unsqueeze(0).cuda()  # Move input to GPU
+    #     with torch.no_grad():
+    #         output = model(input_tensor)  # Model inference
+    #         result = torch.sigmoid(output).item()  # Assume binary classification with sigmoid activation
+    #     return result
+    #
+    #
+    # # Analyze image endpoint
+    # @app.route('/analyzeImage', methods=['POST'])
+    # @login_required
+    # def analyze_uploaded_image():
+    #     if 'file' not in request.files:
+    #         return jsonify(error="No file part"), 400
+    #
+    #     file = request.files['file']
+    #
+    #     if file.filename == '':
+    #         return jsonify(error="No selected file"), 400
+    #
+    #     if file and allowed_file(file.filename):
+    #         file_data = file.read()
+    #
+    #         # Analyze the image with the loaded model
+    #         model_result = analyze_image(file_data)
+    #
+    #         return jsonify({
+    #             'message': 'Image successfully analyzed',
+    #             'model_result': model_result  # Return model result
+    #         })
+    #     else:
+    #         return jsonify(error="Allowed file types are: png, jpg, jpeg, gif"), 400
+    #
+    #
+    # def allowed_file(filename):
+    #     return '.' in filename and filename.rsplit('.', 1)[1].lower() in app.config['ALLOWED_EXTENSIONS']
