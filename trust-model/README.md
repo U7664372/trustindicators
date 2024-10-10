@@ -6,7 +6,7 @@
 
 <img src="./overall_pipeline.png" width="100%" alt="Overall Pipeline">
 
-Reference GitHub repository for the paper: [Learning on Gradients: Generalized Artifacts Representation for GAN-Generated Images Detection](https://openaccess.thecvf.com/content/CVPR2023/papers/Tan_Learning_on_Gradients_Generalized_Artifacts_Representation_for_GAN-Generated_Images_Detection_CVPR_2023_paper.pdf). The paper is authored by Tan CC et al., published in IEEE/CVF CVPR 2023. If you use our code, please cite our paper:
+Reference GitHub repository for the paper: [Learning on Gradients: Generalized Artifacts Representation for GAN-Generated Images Detection](https://openaccess.thecvf.com/content/CVPR2023/papers/Tan_Learning_on_Gradients_Generalized_Artifacts_Representation_for_GAN-Generated_Images_Detection_CVPR_2023_paper.pdf). The paper is authored by Tan CC et al., published in IEEE/CVF CVPR 2023. 
 
 ```bibtex
 @inproceedings{tan2023learning,
